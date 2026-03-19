@@ -1,11 +1,22 @@
-# Sistema de Priorización de Riesgo Patrimonial v2.0
+# Sistema de Análisis y Asignación de Programas para Adultos Mayores
 
-Este sistema es una aplicación de escritorio desarrollada en Python utilizando Tkinter y SQLite. Su objetivo es analizar causas judiciales en formato PDF (utilizando NLP y OCR) para identificar factores de riesgo patrimonial en adultos mayores y sugerir derivaciones a programas sociales de forma automática.
+Este proyecto es un **pipeline de datos (ETL) y sistema analítico** desarrollado en Python. Su objetivo principal es extraer, transformar y estructurar datos provenientes de fuentes no estructuradas (causas judiciales en formato PDF) para evaluar el riesgo patrimonial y **asignar automáticamente a los adultos mayores a los programas sociales** de la red institucional del Estado (SENAMA, MINSAL, MDS, Minvu, etc.).
 
-## Requisitos
+## Características Destacadas (Data Engineering & Analytics)
+- **Procesamiento de Datos No Estructurados (OCR y Parsing):** Extracción automatizada de texto desde documentos legales utilizando `PyMuPDF` y `Tesseract OCR`.
+- **Transformación de Datos y NLP:** Limpieza de texto, extracción de metadatos (fechas, comunas, RIT) y detección de entidades/variables de riesgo mediante expresiones regulares avanzadas.
+- **Modelado Relacional y ORM:** Diseño de una arquitectura de base de datos en SQLite gestionada mediante `SQLAlchemy` para asegurar la integridad referencial entre causas, personas, documentos y evaluaciones.
+- **Motor de Reglas (Matching Engine):** Algoritmo de cruce de variables extraídas frente a perfiles de programas sociales con filtrado geoespacial.
+- **Machine Learning Pipeline:** Script integrado para la extracción de *features*, entrenamiento, y evaluación de modelos predictivos (Random Forest, Redes Neuronales, K-Means) utilizando `pandas` y `scikit-learn`.
+
+## Stack Tecnológico
 - Python 3.x
-- Tesseract OCR (para análisis de imágenes en PDFs)
+- **Bases de Datos:** SQLite, SQLAlchemy (ORM)
+- **Procesamiento de Datos / ML:** Pandas, Scikit-Learn, Matplotlib
+- **Extracción de Texto:** PyMuPDF, Tesseract OCR, pdf2image
+- **Interfaz (Frontend):** Tkinter
 
 ## Instalación
 1. Clonar el repositorio.
 2. Instalar las dependencias (ej. `pip install -r requirements.txt`).
+3. Asegurar que Tesseract OCR esté instalado y agregado al PATH del sistema.
