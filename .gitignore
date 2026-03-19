@@ -1,0 +1,21 @@
+# Entornos virtuales
+venv/
+env/
+.env
+
+# Archivos de Python precompilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Base de datos local (¡No subir datos sensibles!)
+data/riesgo_patrimonial.db
+
+# Archivos PDF y documentos físicos (¡Privacidad!)
+data/causas_archivadas/
+
+# Outputs de modelos de Machine Learning (se generan localmente)
+model_outputs/
+
+# Archivos del sistema operativo
+.DS_Store

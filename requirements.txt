@@ -1,0 +1,10 @@
+# Dependencias del Backend y Scripts
+SQLAlchemy
+pandas
+scikit-learn
+matplotlib
+joblib
+PyMuPDF
+pdf2image
+pytesseract
+bcrypt
