@@ -80,7 +80,7 @@ graph TD
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone [https://github.com/Bastian-SotoM/legal-document-etl-pipeline.git](https://github.com/Bastian-SotoM/legal-document-etl-pipeline.git)
+   git clone https://github.com/Bastian-SotoM/legal-document-etl-pipeline.git
 2. Instalar dependencias:
 ```bash
 pip install -r requirements.txt
