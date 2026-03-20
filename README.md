@@ -52,6 +52,7 @@ A continuación, se presenta el flujo lógico del pipeline de datos y el motor a
 
 ```mermaid
 graph TD
+    %% Definición de Nodos
     PDF[Causas Judiciales en PDF]
     OCR[Motor OCR Tesseract + PyMuPDF]
     Regex[Motor de Reglas Regex Engine]
@@ -63,6 +64,7 @@ graph TD
     App[Interfaz de Usuario Tkinter]
     Reporte[Reporte de Asignación Completo]
 
+    %% Definición de Conexiones
     PDF --> OCR
     OCR --> Regex
     Regex --> ORM
@@ -73,14 +75,17 @@ graph TD
     Match --> App
     App --> Reporte
 
-%% Estilos
-    classDef fuente fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef proceso fill:#ccf,stroke:#333,stroke-width:2px;
-    classDef analitica fill:#ff9,stroke:#333,stroke-width:2px;
-    classDef salida fill:#bbf,stroke:#333,stroke-width:2px;
+    %% Definición de Estilos de Alto Contraste (Fondo claro, Texto negro)
+    classDef fuente fill:#FFC0CB,stroke:#000,stroke-width:2px,color:#000;
+    classDef proceso fill:#E6E6FA,stroke:#000,stroke-width:2px,color:#000;
+    classDef bd fill:#87CEFA,stroke:#000,stroke-width:2px,color:#000;
+    classDef analitica fill:#FFFACD,stroke:#000,stroke-width:2px,color:#000;
+    classDef salida fill:#98FB98,stroke:#000,stroke-width:2px,color:#000;
 
+    %% Asignación de Clases a Nodos
     class PDF fuente;
-    class OCR,Regex,ORM,DB proceso;
+    class OCR,Regex,ORM proceso;
+    class DB bd;
     class FE,ML analitica;
     class Match,App,Reporte salida;
 ```
