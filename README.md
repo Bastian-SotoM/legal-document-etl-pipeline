@@ -1,22 +1,66 @@
-# ⚖️ Sistema de Inteligencia de Datos: Análisis y Asignación de Programas (Adultos Mayores)
-**Memoria de Título - Ingeniería Civil en Informática y Telecomunicaciones** *Universidad Finis Terrae, 2025*
+# ⚖️ Sistema Inteligente de Análisis y Asignación de Programas (Adultos Mayores)
 
-## 🚀 Visión General
-Este proyecto resuelve un problema crítico de gestión pública: la transformación de datos no estructurados provenientes de **causas judiciales (PDFs)** en activos de datos accionables. Desarrollé un **Data Pipeline (ETL)** robusto que utiliza OCR y técnicas de **NLP (Natural Language Processing)** para automatizar la evaluación de riesgo patrimonial y la asignación eficiente de recursos estatales.
+### **Proyecto de Memoria de Título | Ingeniería Civil en Informática y Telecomunicaciones**
+*Universidad Finis Terrae, 2025*
 
-## 🛠️ Ingeniería de Datos y Backend (Core)
-* **Ingesta de Datos No Estructurados:** Implementación de un motor de extracción híbrido (**PyMuPDF + Tesseract OCR**) para la digitalización y parsing de documentos legales complejos.
-* **Procesamiento y Limpieza (Regex Engine):** Diseño de un motor de expresiones regulares avanzado para la normalización de metadatos (RIT, fechas, comunas) y detección de patrones de riesgo.
-* **Capa de Persistencia (ORM):** Arquitectura de base de datos relacional gestionada mediante **SQLAlchemy**, garantizando la integridad referencial y escalabilidad del modelo de datos.
+---
 
-## 🤖 Analítica Avanzada y Machine Learning
-El sistema integra un pipeline de ciencia de datos para la toma de decisiones:
-* **Feature Engineering:** Extracción de variables clave desde el texto procesado.
-* **Modelado Predictivo:** Implementación y evaluación de modelos (**Random Forest, Redes Neuronales y K-Means**) utilizando **Scikit-Learn** para clasificar niveles de vulnerabilidad.
-* **Matching Engine:** Algoritmo de cruce geoespacial para la asignación automática basada en perfiles sociodemográficos.
+## 🚀 La Problemática
 
-## 📦 Stack Tecnológico
-* **Lenguaje:** Python 3.x
-* **Data Stack:** Pandas, Scikit-Learn, SQLAlchemy
-* **OCR/Document Analysis:** Tesseract, PyMuPDF, pdf2image
-* **UI:** Tkinter (Desktop Interface)
+El proyecto aborda un desafío crítico en la gestión pública: la transformación de datos **no estructurados** (causas judiciales en formato PDF) en información accionable. Este sistema automatiza la extracción de texto mediante OCR, evalúa el riesgo patrimonial y asigna eficientemente a los adultos mayores a los programas sociales de la red estatal.
+
+---
+
+## 📊 Flujo de Funcionamiento del Sistema (Data Pipeline)
+
+A continuación, se presenta el diagrama de arquitectura del pipeline de datos y el motor analítico desarrollado:
+
+```mermaid
+graph TD
+    %% Fuentes de Datos
+    subgraph Fuentes ["1. Ingesta de Datos (No Estructurados)"]
+        PDF[📄 Causas Judiciales en PDF]
+    end
+
+    %% Proceso ETL
+    subgraph ETL ["2. Pipeline de Datos (ETL & NLP)"]
+        OCR[⚙️ Motor OCR <br/>(Tesseract + PyMuPDF)]
+        Regex[🔍 Motor de Reglas <br/>(Regex Engine)]
+        ORM[🗄️ Capa de Persistencia <br/>(SQLAlchemy ORM)]
+        DB[(🗄️ Base de Datos <br/>SQLite)]
+    end
+
+    %% Motor Analítico y ML
+    subgraph Analisis ["3. Motor Analítico & Machine Learning"]
+        FE[🧠 Feature <br/>Engineering]
+        ML[🤖 Modelos Predictivos <br/>(Random Forest, RFN, K-Means)]
+    end
+
+    %% Salida y Decisiones
+    subgraph Salida ["4. Asignación y Salida"]
+        Match[⚖️ Matching <br/>Engine (Geoespacial)]
+        App[💻 Interfaz de <br/>Usuario (Tkinter)]
+        Reporte[📊 Reporte de <br/>Asignación Completo]
+    end
+
+    %% Conexiones
+    PDF -->|Carga| OCR
+    OCR -->|Texto Plano| Regex
+    Regex -->|Metadatos Estructurados| ORM
+    ORM -->|CRUD Operations| DB
+    DB -->|Datos Limpios| FE
+    FE -->|Vectores de Características| ML
+    ML -->|Nivel de Riesgo Predictivo| Match
+    Match -->|Resultados de Cruce| App
+    App -->|Visualización| Reporte
+
+    %% Estilos (Opcional para GitHub)
+    classDef fuente fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef proceso fill:#ccf,stroke:#333,stroke-width:2px;
+    classDef analitica fill:#ff9,stroke:#333,stroke-width:2px;
+    classDef salida fill:#bbf,stroke:#333,stroke-width:2px;
+
+    class PDF fuente;
+    class OCR,Regex,ORM,DB proceso;
+    class FE,ML analitica;
+    class Match,App,Reporte salida;
