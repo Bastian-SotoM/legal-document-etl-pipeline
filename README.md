@@ -55,13 +55,13 @@ graph TD
 ***Reconocimiento de Entidades (Regex):** Implementación de un motor de expresiones regulares para identificar metadatos críticos como RIT, tribunales y variables biopsicosociales.
 
 ### 2. Motor de Coincidencia (Matching Engine)
-**Lógica Ponderada:** El sistema utiliza una escala discreta $\{-2, -1, +1, +2\}$ para diferenciar matemáticamente los requisitos obligatorios de los factores agravantes de contexto.
-**Gestión de Incertidumbre:** Ante la falta de datos clave en la sentencia, el sistema penaliza el "Nivel de Confianza" y genera alertas de información faltante para orientar la indagación del juez.
+***Lógica Ponderada:** El sistema utiliza una escala discreta $\{-2, -1, +1, +2\}$ para diferenciar matemáticamente los requisitos obligatorios de los factores agravantes de contexto.
+***Gestión de Incertidumbre:** Ante la falta de datos clave en la sentencia, el sistema penaliza el "Nivel de Confianza" y genera alertas de información faltante para orientar la indagación del juez.
 **Filtro de Territorialidad:** El sistema valida la viabilidad de la sugerencia según la disponibilidad real de programas en la comuna del usuario (ej. convenios SNAC o CEDIAM).
 
 ### 3. Seguridad y Auditoría
-**Control de Acceso (RBAC):** Interfaz adaptativa que distingue entre los roles de **Analista** y **Administrador**.
-**Trazabilidad Forense:** Registro inmutable de todas las operaciones críticas (logins, cargas, modificaciones) en una tabla de auditoría para asegurar la transparencia institucional.
+***Control de Acceso (RBAC):** Interfaz adaptativa que distingue entre los roles de **Analista** y **Administrador**.
+***Trazabilidad Forense:** Registro inmutable de todas las operaciones críticas (logins, cargas, modificaciones) en una tabla de auditoría para asegurar la transparencia institucional.
 
 ---
 
