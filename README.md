@@ -1,22 +1,22 @@
-# Sistema de Análisis y Asignación de Programas para Adultos Mayores
+# ⚖️ Sistema de Inteligencia de Datos: Análisis y Asignación de Programas (Adultos Mayores)
+**Memoria de Título - Ingeniería Civil en Informática y Telecomunicaciones** *Universidad Finis Terrae, 2025*
 
-Este proyecto es un **pipeline de datos (ETL) y sistema analítico** desarrollado en Python. Su objetivo principal es extraer, transformar y estructurar datos provenientes de fuentes no estructuradas (causas judiciales en formato PDF) mediante OCR y **Extracción de Información Basada en Reglas (Regex)** para evaluar el riesgo patrimonial y **asignar automáticamente a los adultos mayores a los programas sociales** de la red institucional del Estado.
+## 🚀 Visión General
+Este proyecto resuelve un problema crítico de gestión pública: la transformación de datos no estructurados provenientes de **causas judiciales (PDFs)** en activos de datos accionables. Desarrollé un **Data Pipeline (ETL)** robusto que utiliza OCR y técnicas de **NLP (Natural Language Processing)** para automatizar la evaluación de riesgo patrimonial y la asignación eficiente de recursos estatales.
 
-## Características Destacadas (Data Engineering & Analytics)
-- **Procesamiento de Datos No Estructurados (OCR y Parsing):** Extracción automatizada de texto desde documentos legales utilizando `PyMuPDF` y `Tesseract OCR`.
-- **Transformación de Datos y Pattern Matching:** Limpieza de texto, extracción de metadatos (fechas, comunas, RIT) y detección de variables de riesgo mediante un motor de expresiones regulares (Regex) avanzado.
-- **Modelado Relacional y ORM:** Diseño de una arquitectura de base de datos en SQLite gestionada mediante `SQLAlchemy` para asegurar la integridad referencial entre causas, personas, documentos y evaluaciones.
-- **Motor de Reglas (Matching Engine):** Algoritmo de cruce de variables extraídas frente a perfiles de programas sociales con filtrado geoespacial.
-- **Machine Learning Pipeline:** Script integrado para la extracción de *features*, entrenamiento, y evaluación de modelos predictivos (Random Forest, Redes Neuronales, K-Means) utilizando `pandas` y `scikit-learn`.
+## 🛠️ Ingeniería de Datos y Backend (Core)
+* **Ingesta de Datos No Estructurados:** Implementación de un motor de extracción híbrido (**PyMuPDF + Tesseract OCR**) para la digitalización y parsing de documentos legales complejos.
+* **Procesamiento y Limpieza (Regex Engine):** Diseño de un motor de expresiones regulares avanzado para la normalización de metadatos (RIT, fechas, comunas) y detección de patrones de riesgo.
+* **Capa de Persistencia (ORM):** Arquitectura de base de datos relacional gestionada mediante **SQLAlchemy**, garantizando la integridad referencial y escalabilidad del modelo de datos.
 
-## Stack Tecnológico
-- Python 3.x
-- **Bases de Datos:** SQLite, SQLAlchemy (ORM)
-- **Procesamiento de Datos / ML:** Pandas, Scikit-Learn, Matplotlib
-- **Extracción de Texto:** PyMuPDF, Tesseract OCR, pdf2image
-- **Interfaz (Frontend):** Tkinter
+## 🤖 Analítica Avanzada y Machine Learning
+El sistema integra un pipeline de ciencia de datos para la toma de decisiones:
+* **Feature Engineering:** Extracción de variables clave desde el texto procesado.
+* **Modelado Predictivo:** Implementación y evaluación de modelos (**Random Forest, Redes Neuronales y K-Means**) utilizando **Scikit-Learn** para clasificar niveles de vulnerabilidad.
+* **Matching Engine:** Algoritmo de cruce geoespacial para la asignación automática basada en perfiles sociodemográficos.
 
-## Instalación
-1. Clonar el repositorio.
-2. Instalar las dependencias (ej. `pip install -r requirements.txt`).
-3. Asegurar que Tesseract OCR esté instalado y agregado al PATH del sistema.
+## 📦 Stack Tecnológico
+* **Lenguaje:** Python 3.x
+* **Data Stack:** Pandas, Scikit-Learn, SQLAlchemy
+* **OCR/Document Analysis:** Tesseract, PyMuPDF, pdf2image
+* **UI:** Tkinter (Desktop Interface)
