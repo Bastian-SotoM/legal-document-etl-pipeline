@@ -16,6 +16,23 @@ El proyecto aborda un desafío crítico en la gestión pública: la transformaci
 
 A continuación, se presenta el flujo lógico del pipeline de datos y el motor analítico desarrollado. GitHub renderiza este diagrama automáticamente:
 
+# ⚖️ Sistema Inteligente de Análisis y Asignación de Programas (Adultos Mayores)
+
+### **Proyecto de Memoria de Título | Ingeniería Civil en Informática y Telecomunicaciones**
+*Universidad Finis Terrae, 2025*
+
+---
+
+## 🚀 La Problemática
+
+El proyecto aborda un desafío crítico en la gestión pública: la transformación de datos **no estructurados** (causas judiciales en formato PDF) en información accionable. Este sistema automatiza la extracción de texto mediante OCR, evalúa el riesgo patrimonial y asigna eficientemente a los adultos mayores a los programas sociales de la red estatal.
+
+---
+
+## 📊 Arquitectura del Sistema (Data Pipeline)
+
+A continuación, se presenta el flujo lógico del pipeline de datos y el motor analítico desarrollado. GitHub renderiza este diagrama automáticamente:
+
 ```mermaid
 graph TD
     %% Fuentes de Datos
@@ -65,6 +82,7 @@ graph TD
     class OCR,Regex,ORM,DB proceso;
     class FE,ML analitica;
     class Match,App,Reporte salida;
+
 🛠️ Capacidades de Ingeniería de Datos
 1. Procesamiento de Datos No Estructurados (OCR)
 Motor Híbrido: Combinación de PyMuPDF para manipulación de documentos y Tesseract OCR para digitalización de alta precisión en textos legales complejos.
