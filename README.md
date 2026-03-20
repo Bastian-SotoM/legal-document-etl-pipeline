@@ -1,3 +1,4 @@
+Markdown
 # ⚖️ Sistema Inteligente de Análisis y Asignación de Programas (Adultos Mayores)
 
 ### **Proyecto de Memoria de Título | Ingeniería Civil en Informática y Telecomunicaciones**
@@ -11,9 +12,9 @@ El proyecto aborda un desafío crítico en la gestión pública: la transformaci
 
 ---
 
-## 📊 Flujo de Funcionamiento del Sistema (Data Pipeline)
+## 📊 Arquitectura del Sistema (Data Pipeline)
 
-A continuación, se presenta el diagrama de arquitectura del pipeline de datos y el motor analítico desarrollado:
+A continuación, se presenta el flujo lógico del pipeline de datos y el motor analítico desarrollado. GitHub renderiza este diagrama automáticamente:
 
 ```mermaid
 graph TD
@@ -24,37 +25,37 @@ graph TD
 
     %% Proceso ETL
     subgraph ETL ["2. Pipeline de Datos (ETL & NLP)"]
-        OCR[⚙️ Motor OCR <br/>(Tesseract + PyMuPDF)]
-        Regex[🔍 Motor de Reglas <br/>(Regex Engine)]
-        ORM[🗄️ Capa de Persistencia <br/>(SQLAlchemy ORM)]
+        OCR[⚙️ Motor OCR <br/>Tesseract + PyMuPDF]
+        Regex[🔍 Motor de Reglas <br/>Regex Engine]
+        ORM[🗄️ Capa de Persistencia <br/>SQLAlchemy ORM]
         DB[(🗄️ Base de Datos <br/>SQLite)]
     end
 
     %% Motor Analítico y ML
     subgraph Analisis ["3. Motor Analítico & Machine Learning"]
         FE[🧠 Feature <br/>Engineering]
-        ML[🤖 Modelos Predictivos <br/>(Random Forest, RFN, K-Means)]
+        ML[🤖 Modelos Predictivos <br/>RF, RFN, K-Means]
     end
 
     %% Salida y Decisiones
     subgraph Salida ["4. Asignación y Salida"]
-        Match[⚖️ Matching <br/>Engine (Geoespacial)]
-        App[💻 Interfaz de <br/>Usuario (Tkinter)]
+        Match[⚖️ Matching <br/>Engine Geoespacial]
+        App[💻 Interfaz de <br/>Usuario Tkinter]
         Reporte[📊 Reporte de <br/>Asignación Completo]
     end
 
     %% Conexiones
-    PDF -->|Carga| OCR
-    OCR -->|Texto Plano| Regex
-    Regex -->|Metadatos Estructurados| ORM
-    ORM -->|CRUD Operations| DB
-    DB -->|Datos Limpios| FE
-    FE -->|Vectores de Características| ML
-    ML -->|Nivel de Riesgo Predictivo| Match
-    Match -->|Resultados de Cruce| App
-    App -->|Visualización| Reporte
+    PDF --> OCR
+    OCR --> Regex
+    Regex --> ORM
+    ORM --> DB
+    DB --> FE
+    FE --> ML
+    ML --> Match
+    Match --> App
+    App --> Reporte
 
-    %% Estilos (Opcional para GitHub)
+    %% Estilos
     classDef fuente fill:#f9f,stroke:#333,stroke-width:2px;
     classDef proceso fill:#ccf,stroke:#333,stroke-width:2px;
     classDef analitica fill:#ff9,stroke:#333,stroke-width:2px;
@@ -64,3 +65,46 @@ graph TD
     class OCR,Regex,ORM,DB proceso;
     class FE,ML analitica;
     class Match,App,Reporte salida;
+🛠️ Capacidades de Ingeniería de Datos
+1. Procesamiento de Datos No Estructurados (OCR)
+Motor Híbrido: Combinación de PyMuPDF para manipulación de documentos y Tesseract OCR para digitalización de alta precisión en textos legales complejos.
+
+Normalización: Algoritmos de limpieza para reducir el ruido en textos escaneados y mejorar la tasa de acierto del Parsing.
+
+2. Motor de Reglas Avanzado (Regex Engine)
+Extracción de Entidades: Diseño de expresiones regulares para identificar patrones de riesgo biográfico y patrimonial.
+
+Pattern Matching: Automatización en la extracción de variables clave (RIT, comunas, fechas) para el modelado estructurado.
+
+3. Machine Learning Pipeline
+Feature Engineering: Transformación de texto procesado en vectores de características para el modelado predictivo.
+
+Modelado: Entrenamiento y evaluación de algoritmos con Scikit-Learn:
+
+Random Forest (Clasificación de Riesgo)
+
+Redes Neurales (Clasificación Profunda)
+
+K-Means (Clustering de Vulnerabilidad)
+
+💻 Stack Tecnológico
+Nota de Ingeniería: Se utilizó SQLAlchemy como capa de abstracción (ORM) para asegurar un código mantenible, facilitar futuras migraciones a motores como PostgreSQL y garantizar la integridad referencial de los datos.
+
+🔧 Instalación y Ejecución
+Para replicar el entorno de desarrollo y ejecutar el sistema:
+
+Clonar el repositorio:
+
+Bash
+git clone [https://github.com/Bastian-SotoM/Nombre-De-Tu-Repositorio.git](https://github.com/Bastian-SotoM/Nombre-De-Tu-Repositorio.git)
+Instalar dependencias:
+
+Bash
+pip install -r requirements.txt
+Configurar OCR:
+Asegúrese de tener instalado Tesseract OCR en su sistema y agregarlo al PATH de variables de entorno.
+
+Ejecutar aplicación:
+
+Bash
+python main.py
