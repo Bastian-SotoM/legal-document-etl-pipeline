@@ -51,8 +51,8 @@ graph TD
 ## 🛠️ Capacidades Técnicas Desarrolladas
 
 ### 1. Procesamiento de Información No Estructurada
-**Pipeline ETL Automatizado:** Extracción masiva de datos desde archivos PDF (nativos y escaneados) utilizando las librerías `PyMuPDF` y `Tesseract OCR`.
-**Reconocimiento de Entidades (Regex):** Implementación de un motor de expresiones regulares para identificar metadatos críticos como RIT, tribunales y variables biopsicosociales.
+***Pipeline ETL Automatizado:** Extracción masiva de datos desde archivos PDF (nativos y escaneados) utilizando las librerías `PyMuPDF` y `Tesseract OCR`.
+***Reconocimiento de Entidades (Regex):** Implementación de un motor de expresiones regulares para identificar metadatos críticos como RIT, tribunales y variables biopsicosociales.
 
 ### 2. Motor de Coincidencia (Matching Engine)
 **Lógica Ponderada:** El sistema utiliza una escala discreta $\{-2, -1, +1, +2\}$ para diferenciar matemáticamente los requisitos obligatorios de los factores agravantes de contexto.
