@@ -80,4 +80,15 @@ graph TD
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone [https://github.com/Bastian-SotoM/Tu-Repo-Aqui.git](https://github.com/Bastian-SotoM/Tu-Repo-Aqui.git)
+   git clone [https://github.com/Bastian-SotoM/legal-document-etl-pipeline.git](https://github.com/Bastian-SotoM/legal-document-etl-pipeline.git)
+2. Instalar dependencias:
+```bash
+pip install -r requirements.txt
+```
+3. Configurar Tesseract OCR:
+Asegúrese de que el motor de Tesseract esté instalado en su sistema operativo y agregado al PATH de las variables de entorno.
+4. Ejecutar aplicación:
+```bash
+python main.py
+```
+Desarrollado por Bastián Soto Morales - Ingeniero Civil en Informática y Telecomunicaciones, Universidad Finis Terrae.
