@@ -92,4 +92,5 @@ Asegúrese de que el motor de Tesseract esté instalado en su sistema operativo 
 ```bash
 python main.py
 ```
-Desarrollado por Bastián Soto Morales - Ingeniero Civil en Informática y Telecomunicaciones, Universidad Finis Terrae.
+---
+**Bastian Soto Morales** *Ingeniero Civil en Informática y Telecomunicaciones | Universidad Finis Terrae*
