@@ -73,10 +73,16 @@ graph TD
     Match --> App
     App --> Reporte
 
-    style PDF fill:#f9f,stroke:#333,stroke-width:2px
-    style DB fill:#ccf,stroke:#333,stroke-width:2px
-    style ML fill:#ff9,stroke:#333,stroke-width:2px
-    style Reporte fill:#bbf,stroke:#333,stroke-width:2px
+%% Estilos
+    classDef fuente fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef proceso fill:#ccf,stroke:#333,stroke-width:2px;
+    classDef analitica fill:#ff9,stroke:#333,stroke-width:2px;
+    classDef salida fill:#bbf,stroke:#333,stroke-width:2px;
+
+    class PDF fuente;
+    class OCR,Regex,ORM,DB proceso;
+    class FE,ML analitica;
+    class Match,App,Reporte salida;
 ```
 🛠️ Capacidades de Ingeniería de Datos
 1. Procesamiento de Datos No Estructurados (OCR)
