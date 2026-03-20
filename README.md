@@ -7,7 +7,7 @@
 
 ## 🚀 Resumen del Proyecto
 
-[cite_start]Este proyecto desarrolla un prototipo de **Sistema de Soporte a la Decisión Judicial (DSS)** diseñado para abordar el maltrato patrimonial en adultos mayores en Chile[cite: 133]. [cite_start]A diferencia de los modelos de "caja negra", este sistema utiliza un **Análisis de Coincidencia Factorial** para transformar sentencias judiciales no estructuradas en sugerencias de derivación técnica hacia la oferta programática estatal como SENAMA y redes municipales[cite: 134, 157].
+Este proyecto desarrolla un prototipo de **Sistema de Soporte a la Decisión Judicial (DSS)** diseñado para abordar el maltrato patrimonial en adultos mayores en Chile.A diferencia de los modelos de "caja negra", este sistema utiliza un **Análisis de Coincidencia Factorial** para transformar sentencias judiciales no estructuradas en sugerencias de derivación técnica hacia la oferta programática estatal como SENAMA y redes municipales.
 
 ---
 
