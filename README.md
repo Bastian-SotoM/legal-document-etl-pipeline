@@ -1,134 +1,83 @@
-Markdown
-# ⚖️ Sistema Inteligente de Análisis y Asignación de Programas (Adultos Mayores)
+# ⚖️ Sistema de Orientación Judicial: Derivación Asistida de Adultos Mayores
 
-### **Proyecto de Memoria de Título | Ingeniería Civil en Informática y Telecomunicaciones**
+### **Trabajo de Título | Ingeniería Civil en Informática y Telecomunicaciones**
 *Universidad Finis Terrae, 2025*
 
 ---
 
-## 🚀 La Problemática
+## 🚀 Resumen del Proyecto
 
-El proyecto aborda un desafío crítico en la gestión pública: la transformación de datos **no estructurados** (causas judiciales en formato PDF) en información accionable. Este sistema automatiza la extracción de texto mediante OCR, evalúa el riesgo patrimonial y asigna eficientemente a los adultos mayores a los programas sociales de la red estatal.
+[cite_start]Este proyecto desarrolla un prototipo de **Sistema de Soporte a la Decisión Judicial (DSS)** diseñado para abordar el maltrato patrimonial en adultos mayores en Chile[cite: 133]. [cite_start]A diferencia de los modelos de "caja negra", este sistema utiliza un **Análisis de Coincidencia Factorial** para transformar sentencias judiciales no estructuradas en sugerencias de derivación técnica hacia la oferta programática estatal como SENAMA y redes municipales[cite: 134, 157].
 
 ---
 
 ## 📊 Arquitectura del Sistema (Data Pipeline)
 
-A continuación, se presenta el flujo lógico del pipeline de datos y el motor analítico desarrollado. GitHub renderiza este diagrama automáticamente:
-
-# ⚖️ Sistema Inteligente de Análisis y Asignación de Programas (Adultos Mayores)
-
-### **Proyecto de Memoria de Título | Ingeniería Civil en Informática y Telecomunicaciones**
-*Universidad Finis Terrae, 2025*
-
----
-
-## 🚀 La Problemática
-
-El proyecto aborda un desafío crítico en la gestión pública: la transformación de datos **no estructurados** (causas judiciales en formato PDF) en información accionable. Este sistema automatiza la extracción de texto mediante OCR, evalúa el riesgo patrimonial y asigna eficientemente a los adultos mayores a los programas sociales de la red estatal.
-
----
-
-## 📊 Arquitectura del Sistema (Data Pipeline)
-
-A continuación, se presenta el flujo lógico del pipeline de datos y el motor analítico desarrollado. GitHub renderiza este diagrama automáticamente:
-
-# ⚖️ Sistema Inteligente de Análisis y Asignación de Programas (Adultos Mayores)
-
-### **Proyecto de Memoria de Título | Ingeniería Civil en Informática y Telecomunicaciones**
-*Universidad Finis Terrae, 2025*
-
----
-
-## 🚀 La Problemática
-
-El proyecto aborda un desafío crítico en la gestión pública: la transformación de datos **no estructurados** (causas judiciales en formato PDF) en información accionable. Este sistema automatiza la extracción de texto mediante OCR, evalúa el riesgo patrimonial y asigna eficientemente a los adultos mayores a los programas sociales de la red estatal.
-
----
-
-## 📊 Arquitectura del Sistema (Data Pipeline)
-
-A continuación, se presenta el flujo lógico del pipeline de datos y el motor analítico desarrollado. GitHub renderiza este diagrama automáticamente:
+El software implementa un flujo automatizado desde la ingesta del documento legal hasta la recomendación de una medida de protección social. El diagrama a continuación presenta un **alto contraste** para una lectura óptima en GitHub:
 
 ```mermaid
 graph TD
-    %% Definición de Nodos
-    PDF[Causas Judiciales en PDF]
-    OCR[Motor OCR Tesseract + PyMuPDF]
-    Regex[Motor de Reglas Regex Engine]
-    ORM[Capa de Persistencia SQLAlchemy ORM]
-    DB[(Base de Datos SQLite)]
-    FE[Feature Engineering]
-    ML[Modelos Predictivos RF, RFN, K-Means]
-    Match[Matching Engine Geoespacial]
-    App[Interfaz de Usuario Tkinter]
-    Reporte[Reporte de Asignación Completo]
+    %% Fuentes de Datos
+    PDF[📄 Sentencia Judicial en PDF] --> ETL[⚙️ Pipeline ETL]
 
-    %% Definición de Conexiones
-    PDF --> OCR
-    OCR --> Regex
-    Regex --> ORM
-    ORM --> DB
-    DB --> FE
-    FE --> ML
-    ML --> Match
-    Match --> App
-    App --> Reporte
+    %% Procesamiento
+    subgraph Procesamiento ["Ingeniería de Datos (NLP & Reglas)"]
+        ETL --> OCR[🔍 Extracción de Texto <br/>PyMuPDF + Tesseract]
+        OCR --> Regex[🧩 Motor de Entidades <br/>Regex Engine]
+        Regex --> Persistencia[🗄️ SQLAlchemy ORM]
+    end
 
-    %% Definición de Estilos de Alto Contraste (Fondo claro, Texto negro)
+    %% Motor de Decisión
+    subgraph Decision ["Motor de Orientación (DSS)"]
+        Persistencia --> Matching[⚖️ Algoritmo de <br/>Coincidencia Factorial]
+        Matching --> Ranking[📊 Ranking de <br/>Elegibilidad %]
+    end
+
+    %% Salida
+    Ranking --> UI[💻 Interfaz de Usuario <br/>Tkinter GUI]
+    UI --> Sugerencia[✅ Derivación Asistida <br/>ELEAM, Vínculos, Defensoría]
+
+    %% Estilos de Alto Contraste (Fondo claro, Texto negro)
     classDef fuente fill:#FFC0CB,stroke:#000,stroke-width:2px,color:#000;
     classDef proceso fill:#E6E6FA,stroke:#000,stroke-width:2px,color:#000;
-    classDef bd fill:#87CEFA,stroke:#000,stroke-width:2px,color:#000;
-    classDef analitica fill:#FFFACD,stroke:#000,stroke-width:2px,color:#000;
+    classDef decision fill:#FFFACD,stroke:#000,stroke-width:2px,color:#000;
     classDef salida fill:#98FB98,stroke:#000,stroke-width:2px,color:#000;
 
-    %% Asignación de Clases a Nodos
     class PDF fuente;
-    class OCR,Regex,ORM proceso;
-    class DB bd;
-    class FE,ML analitica;
-    class Match,App,Reporte salida;
+    class ETL,OCR,Regex,Persistencia proceso;
+    class Matching,Ranking decision;
+    class UI,Sugerencia salida;
 ```
-🛠️ Capacidades de Ingeniería de Datos
-1. Procesamiento de Datos No Estructurados (OCR)
-Motor Híbrido: Combinación de PyMuPDF para manipulación de documentos y Tesseract OCR para digitalización de alta precisión en textos legales complejos.
+## 🛠️ Capacidades Técnicas Desarrolladas
 
-Normalización: Algoritmos de limpieza para reducir el ruido en textos escaneados y mejorar la tasa de acierto del Parsing.
+### 1. Procesamiento de Información No Estructurada
+**Pipeline ETL Automatizado:** Extracción masiva de datos desde archivos PDF (nativos y escaneados) utilizando las librerías `PyMuPDF` y `Tesseract OCR`.
+**Reconocimiento de Entidades (Regex):** Implementación de un motor de expresiones regulares para identificar metadatos críticos como RIT, tribunales y variables biopsicosociales.
 
-2. Motor de Reglas Avanzado (Regex Engine)
-Extracción de Entidades: Diseño de expresiones regulares para identificar patrones de riesgo biográfico y patrimonial.
+### 2. Motor de Coincidencia (Matching Engine)
+**Lógica Ponderada:** El sistema utiliza una escala discreta $\{-2, -1, +1, +2\}$ para diferenciar matemáticamente los requisitos obligatorios de los factores agravantes de contexto.
+**Gestión de Incertidumbre:** Ante la falta de datos clave en la sentencia, el sistema penaliza el "Nivel de Confianza" y genera alertas de información faltante para orientar la indagación del juez.
+**Filtro de Territorialidad:** El sistema valida la viabilidad de la sugerencia según la disponibilidad real de programas en la comuna del usuario (ej. convenios SNAC o CEDIAM).
 
-Pattern Matching: Automatización en la extracción de variables clave (RIT, comunas, fechas) para el modelado estructurado.
+### 3. Seguridad y Auditoría
+**Control de Acceso (RBAC):** Interfaz adaptativa que distingue entre los roles de **Analista** y **Administrador**.
+**Trazabilidad Forense:** Registro inmutable de todas las operaciones críticas (logins, cargas, modificaciones) en una tabla de auditoría para asegurar la transparencia institucional.
 
-3. Machine Learning Pipeline
-Feature Engineering: Transformación de texto procesado en vectores de características para el modelado predictivo.
+---
 
-Modelado: Entrenamiento y evaluación de algoritmos con Scikit-Learn:
+## 💻 Stack Tecnológico
 
-Random Forest (Clasificación de Riesgo)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![SQLAlchemy](https://img.shields.io/badge/sqlalchemy-%23ffcc00.svg?style=for-the-badge&logo=sqlalchemy&logoColor=white)
+![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
 
-Redes Neurales (Clasificación Profunda)
+> **Nota de Ingeniería:** Se priorizaron los **Sistemas Basados en Reglas** sobre modelos predictivos complejos ("caja negra") para asegurar la transparencia ética y la explicabilidad, requisitos fundamentales en el dominio de los Derechos Humanos y la justicia.
 
-K-Means (Clustering de Vulnerabilidad)
+---
 
-💻 Stack Tecnológico
-Nota de Ingeniería: Se utilizó SQLAlchemy como capa de abstracción (ORM) para asegurar un código mantenible, facilitar futuras migraciones a motores como PostgreSQL y garantizar la integridad referencial de los datos.
+## 🔧 Instalación y Ejecución
 
-🔧 Instalación y Ejecución
-Para replicar el entorno de desarrollo y ejecutar el sistema:
-
-Clonar el repositorio:
-
-Bash
-git clone [https://github.com/Bastian-SotoM/Nombre-De-Tu-Repositorio.git](https://github.com/Bastian-SotoM/Nombre-De-Tu-Repositorio.git)
-Instalar dependencias:
-
-Bash
-pip install -r requirements.txt
-Configurar OCR:
-Asegúrese de tener instalado Tesseract OCR en su sistema y agregarlo al PATH de variables de entorno.
-
-Ejecutar aplicación:
-
-Bash
-python main.py
+1. **Clonar el repositorio:**
+   ```bash
+   git clone [https://github.com/Bastian-SotoM/Tu-Repo-Aqui.git](https://github.com/Bastian-SotoM/Tu-Repo-Aqui.git)
